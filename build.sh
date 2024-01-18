@@ -10,17 +10,13 @@ docker push registry.gitlab.com/alexchadwick/bark-rvc-api:$DATE
 docker run \
     --name api \
     --rm \
-    --runtime=nvidia \
-    --gpus all \
     -m 500m \
     -p 8000:8000 \
-    -e NVIDIA_VISIBLE_DEVICES=0 \
     -v ./config.toml:/opt/config.toml \
     -v /mnt/fstore/models/voice:/models \
     -v ~/Downloads:/tmp/ \
     -v ~/.cache/suno:/root/.cache/suno/ \
     -v ~/.cache/huggingface/:/root/.cache/huggingface/ \
     -v ~/.cache/torch:/root/.cache/torch \
-    registry.gitlab.com/alexchadwick/bark-rvc-api:$DATE
 
 # docker push registry.gitlab.com/alexchadwick/bark-rvc-api:latest
