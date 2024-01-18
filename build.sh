@@ -10,6 +10,7 @@ docker push registry.gitlab.com/alexchadwick/bark-rvc-api:$DATE
 docker run \
     --name api \
     --rm \
+    -m 500mb \
     --runtime=nvidia \
     --gpus all \
     -p 8000:8000 \
