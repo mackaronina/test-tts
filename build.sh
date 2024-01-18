@@ -12,7 +12,7 @@ docker run \
     --rm \
     --runtime=nvidia \
     --gpus all \
-    -m 500mb \
+    -m 500m \
     -p 8000:8000 \
     -e NVIDIA_VISIBLE_DEVICES=0 \
     -v ./config.toml:/opt/config.toml \
