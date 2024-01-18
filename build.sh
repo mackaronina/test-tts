@@ -10,9 +10,9 @@ docker push registry.gitlab.com/alexchadwick/bark-rvc-api:$DATE
 docker run \
     --name api \
     --rm \
-    -m 500mb \
     --runtime=nvidia \
     --gpus all \
+    -m 500mb \
     -p 8000:8000 \
     -e NVIDIA_VISIBLE_DEVICES=0 \
     -v ./config.toml:/opt/config.toml \
