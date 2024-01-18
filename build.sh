@@ -11,7 +11,7 @@ docker run \
     --name api \
     --rm \
     -m 500m \
-    -p 8000:8000 \
+    -p 80:80 \
     -v ./config.toml:/opt/config.toml \
     -v /mnt/fstore/models/voice:/models \
     -v ~/Downloads:/tmp/ \
