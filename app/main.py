@@ -6,7 +6,6 @@ import structlog
 import logging
 from .routers import full, list_speakers
 import nltk
-import psutil
 import resource
 
 nltk.download('punkt')
@@ -83,8 +82,4 @@ app.include_router(full.router)
 app.include_router(list_speakers.router)
 
 if __name__ == "__main__":
-    virtual_memory = psutil.virtual_memory()
-    available_memory = virtual_memory.available
-    memory_limit = int(available_memory * 0.9)
-    resource.setrlimit(resource.RLIMIT_AS, (memory_limit, memory_limit))
     uvicorn.run(app, host="0.0.0.0", port=8000)
